@@ -16,12 +16,14 @@ jobs:
     
     - name: Set up Python
       uses: actions/setup-python@v2
+      with: 
+        python-version: '3.10'
         
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install jupyter
-        python -m pip install kfp==1.8.14
+        python -m pip install kfp~=1.8.14
         python -c "import kfp; print('KFP version:', kfp.__version__); print('KFP location:', kfp.__file__)"
         python -c "import kfp.dsl; print('kfp.dsl OK')"
         python -c "import kfp.v2.dsl; print('kfp.v2.dsl OK')"
