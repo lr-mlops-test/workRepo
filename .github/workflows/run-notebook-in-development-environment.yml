@@ -21,6 +21,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install jupyter
+        python -m pip install kfp~=1.8.14
+        python -c "import kfp; print('KFP version:', kfp.__version__)"
+        python -c "import kfp.v2; print('kfp.v2 exists')"
         
     - name: Connect to local server and run the Notebook
       run: |       
